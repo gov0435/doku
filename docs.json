@@ -1,0 +1,97 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Panduan Aplikasi",
+  "appearance": {
+    "default": "light",
+    "strict": false
+    },
+    "background": {"color": {"light": "#fff9f5"}},
+  "colors": {
+    "primary": "#fdae4b",
+    "light": "#fdae4b",
+    "dark": "#0f033a"
+  },
+  "favicon": "/logo-panduan.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Portal",
+        "groups": [
+          {
+            "group": "Tentang Aplikasi",
+            "pages": [
+              "pengantar",
+              "portal/fitur-utama"
+            ]
+          },
+          {
+            "group": "Panduan Pengguna",
+            "pages": [
+              "portal/cara-akses",
+              "portal/bank-materi",
+              "portal/notula-rapat",
+              "portal/sarpras",
+              "portal/upload-foto",
+              "portal/izin",
+              "portal/cuti",
+              "portal/lapor-pak"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Website Berita",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website Utama",
+          "href": "https://bgpgorontalo.kemdikbud.go.id",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/panduan-light.png",
+    "dark": "/logo/panduan-dark.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:hi@mintlify.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
+}
