@@ -1,4 +1,109 @@
 ---
 title: 'Bank Materi'
-description: '...'
 ---
+
+## Apa itu Bank Materi?
+
+Fitur **Bank Materi** berfungsi sebagai pusat penyimpanan digital (repositori) untuk semua materi yang berkaitan dengan kegiatan seperti sosialisasi, bimtek, diklat dsb yang telah diikuti oleh pegawai. Tujuannya adalah untuk mengumpulkan, mengorganisir, dan memudahkan pencarian kembali dokumen-dokumen penting seperti materi presentasi, laporan, dan file pendukung lainnya.
+
+Setiap entri "Bank Materi" mewakili satu kegiatan, yang di dalamnya bisa berisi banyak file materi.
+
+<Note>
+**Navigasi:** Dashboard → Bank Materi
+</Note>
+
+---
+
+## Tampilan Utama
+
+Saat Anda membuka fitur ini, Anda akan melihat daftar semua kegiatan yang sudah tersimpan. Setiap baris menampilkan informasi ringkas:
+
+- **Judul Kegiatan**: Menampilkan nama kegiatan, tanggal mulai, dan jumlah dokumen di dalamnya.
+- **Pegawai Terlibat**: Daftar pegawai yang terlibat dalam kegiatan tersebut.
+- **Tags**: Label untuk kategorisasi cepat.
+- **Tombol Aksi**:
+    - **View** (ikon mata): Untuk melihat detail lengkap kegiatan dan materi di dalamnya.
+
+![Tampilan Daftar Materi ](/images/sinergi/bank-materi/bank-materi-01.JPG)
+
+---
+
+## Alur Penggunaan
+
+
+### Tambah Materi Baru
+
+Untuk menambahkan data kegiatan baru, ikuti langkah berikut:
+
+1.  Klik tombol **`New Bank Materi`** yang berada di pojok kanan atas.
+
+![Tombol New Bank Materi ](/images/sinergi/bank-materi/bank-materi-02.JPG)
+
+2.  Anda akan diarahkan ke halaman formulir "Kegiatan".
+![Form Bank Materi ](/images/sinergi/bank-materi/bank-materi-03.JPG)
+3.  Isi semua field yang tersedia:
+    - **Judul Kegiatan**: Nama resmi kegiatan (Contoh: "Workshop Implementasi Kurikulum Merdeka").
+    - **Tanggal Mulai & Selesai**: Rentang waktu pelaksanaan kegiatan.
+    - **Lokasi Kegiatan**: Tempat kegiatan diselenggarakan.
+    - **Pegawai Terlibat**: Pilih satu atau lebih nama pegawai yang terlibat.
+    - **Tags**: Tambahkan kata kunci yang relevan (Contoh: `kurikulum`, `workshop`, `guru`). Tekan `Enter` setelah mengetik setiap tag.
+    - **Point Penting**: (Opsional) Catatan atau ringkasan penting dari kegiatan tersebut menggunakan editor teks.
+4.  Setelah semua data terisi, klik tombol **`Create`** (atau **`Next step`**).
+
+
+<Note>
+  Langkah ini hanya untuk membuat "wadah" atau informasi umum dari kegiatan. Anda akan menambahkan file materi pada langkah berikutnya setelah kegiatan berhasil dibuat.
+</Note>
+
+### Menambahkan File Materi
+
+Setelah membuat kegiatan, Anda akan dibawa ke halaman detail. Di bagian bawah, Anda akan menemukan area **"Materis"**. Di sinilah Anda mengunggah semua file yang relevan.
+
+![Tombol tambah materi ](/images/sinergi/bank-materi/bank-materi-04.JPG)
+
+1.  Di dalam area "Materis", klik tombol **`New Materi`**.
+2.  Sebuah modal atau form akan muncul. Isi data yang diperlukan (biasanya berupa judul materi dan file yang akan diunggah).
+
+![Form tambah materi ](/images/sinergi/bank-materi/bank-materi-05.JPG)
+
+3.  Klik **`Create`** untuk menyimpan dan mengunggah file.
+4.  Ulangi langkah ini untuk semua file materi yang ingin Anda tambahkan ke dalam kegiatan ini.
+
+Setiap file yang berhasil diunggah akan muncul dalam daftar di area "Materis".
+
+![daftar materi ](/images/sinergi/bank-materi/bank-materi-06.JPG)
+
+#### Menghapus File Materi
+Hanya pengunggah materi yang bisa menghapus.
+
+1.  Klik tombol **Delete** (ikon tempat sampah) yang berwarna merah.
+2.  Sebuah konfirmasi akan muncul untuk memastikan Anda tidak salah klik.
+
+![daftar materi ](/images/sinergi/bank-materi/bank-materi-07.JPG)
+
+### Melihat, Mengedit, dan Menghapus
+
+#### Melihat Detail
+Dari halaman daftar utama, klik tombol **View** pada salah satu kegiatan untuk melihat semua informasi detail dan daftar materi yang sudah diunggah.
+
+#### Mengedit Kegiatan
+Hanya pengguna yang membuat entri kegiatan yang dapat mengeditnya.
+
+![edit bank materi ](/images/sinergi/bank-materi/bank-materi-08.JPG)
+
+1.  Masuk ke halaman detail kegiatan (langkah `View` di atas).
+2.  Klik tombol **Edit** (ikon pensil) di pojok kanan atas halaman detail.
+3.  Anda akan diarahkan kembali ke halaman formulir untuk mengubah data.
+
+#### Menghapus Kegiatan
+Sama seperti edit, hanya pembuat entri yang bisa menghapus.
+
+![hapus bank materi ](/images/sinergi/bank-materi/bank-materi-09.JPG)
+
+1.  Masuk ke halaman **Edit** (langkah di atas).
+2.  Klik tombol **Delete** (ikon tempat sampah) yang berwarna merah.
+3.  Sebuah konfirmasi akan muncul untuk memastikan Anda tidak salah klik.
+
+<Warning>
+  Tindakan menghapus sebuah kegiatan bersifat **permanen**. Seluruh informasi kegiatan **DAN SEMUA FILE MATERI** yang ada di dalamnya akan terhapus dari server dan tidak dapat dikembalikan.
+</Warning>
