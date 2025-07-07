@@ -1,4 +1,95 @@
 ---
 title: 'Sarpras'
-description: '...'
 ---
+Fitur **Sarpras** (Sarana dan Prasarana) adalah sistem terpusat untuk mengelola proses peminjaman fasilitas kantor, seperti gedung aula, asrama, dan ruang kelas. Fitur ini memungkinkan pengguna untuk mengajukan permohonan, dan bagi admin untuk melacak, menyetujui, serta mengelola semua peminjaman secara efisien.
+
+Tujuannya adalah untuk memastikan tidak ada jadwal yang tumpang tindih dan semua administrasi terkait peminjaman (dokumen, biaya, dll.) terdokumentasi dengan baik.
+
+<Note>
+**Navigasi:** Dasbor → Sarpras
+</Note>
+
+---
+
+## Tampilan Utama
+
+Fitur Sarpras memiliki dua mode tampilan utama yang bisa Anda pilih sesuai kebutuhan.
+
+### Mode Daftar (List View)
+
+Ini adalah tampilan default. Mode ini menampilkan semua permohonan peminjaman dalam bentuk tabel, diurutkan dari yang terbaru. Tampilan ini cocok untuk melihat status dan ringkasan dari banyak permohonan sekaligus.
+
+-   **Tanggal Kegiatan**: Rentang waktu peminjaman.
+-   **Instansi & Nama Kegiatan**: Nama pemohon dan kegiatan yang diajukan.
+-   **Fasilitas**: Daftar fasilitas yang dipinjam.
+-   **Progress**: Status terkini dari permohonan (Baru, Diproses, Selesai, Ditolak).
+-   **Lunas**: Status pembayaran (Lunas/Belum).
+
+![Tampilan Daftar Sarpras ](/images/sinergi/sarpras/sarpras-02.JPG)
+
+### Mode Kalender (Calendar View)
+
+Untuk beralih ke mode ini, klik tombol **`Kalender`** di pojok kanan atas. Tampilan kalender sangat berguna untuk melihat jadwal penggunaan fasilitas secara visual. Anda dapat dengan cepat mengidentifikasi tanggal-tanggal mana saja yang sudah terisi atau masih tersedia.
+
+![Tampilan Kalender Sarpras ](/images/sinergi/sarpras/sarpras-03.JPG)
+
+---
+
+## Alur Penggunaan
+
+
+### Langkah 1: Membuat Permohonan Baru
+
+1.  Dari halaman utama Sarpras, klik tombol **`Permohonan Baru`**.
+2.  Anda akan diarahkan ke formulir pengajuan yang terdiri dari beberapa bagian:
+    -   **Detail Kegiatan**: Isi nama kegiatan, tanggal mulai & selesai, jenis kegiatan, dan jumlah peserta.
+    -   **Fasilitas Digunakan**: Centang fasilitas yang ingin dipinjam.
+    -   **Biodata Pemohon**: Isi nama lengkap, nomor WhatsApp, instansi, dan alamat instansi.
+    -   **Dokumen/Berkas**: Unggah dokumen permohonan resmi (misalnya: surat permohonan).
+3.  Bagian **Pembiayaan** dan **Status Permohonan** biasanya akan diisi oleh admin nanti.
+4.  Setelah semua data wajib terisi, klik tombol **`Create`** untuk mengirim permohonan.
+
+![Form Sarpras Baru ](/images/sinergi/sarpras/sarpras-03.JPG)
+
+### Langkah 2: Melihat Detail dan Status Permohonan
+
+Setelah permohonan dibuat, Anda atau admin dapat melihat detail lengkapnya.
+
+1.  Dari **Mode Daftar**, klik tombol **View** (ikon mata) pada permohonan yang diinginkan.
+
+![Tombol View Sarpras ](/images/sinergi/sarpras/sarpras-04.JPG)
+
+2.  Halaman detail akan menampilkan semua informasi yang Anda input, serta informasi tambahan dari admin seperti:
+    -   Status permohonan (dengan ikon dan warna yang sesuai).
+    -   Rincian biaya dan status pembayaran.
+    -   Link untuk mengunduh dokumen permohonan yang telah diunggah.
+
+![Detail Sarpras ](/images/sinergi/sarpras/sarpras-05.JPG)
+
+### Langkah 3: Mengelola Permohonan (Untuk Admin)
+
+Admin memiliki akses untuk mengelola permohonan yang masuk.
+
+1.  Masuk ke halaman **Edit** dari sebuah permohonan.
+2.  Admin dapat mengubah **Status Permohonan** (misalnya dari `Baru` menjadi `Diproses`).
+
+![Edit Status Sarpras ](/images/sinergi/sarpras/sarpras-06.JPG)
+
+3.  Admin juga dapat mengisi rincian **Pembiayaan** (total biaya dan uang muka) serta memperbarui **Status Pembayaran** menjadi `Sudah Lunas`.
+
+![Edit Pembiayaan Sarpras ](/images/sinergi/sarpras/sarpras-07.JPG)
+
+### Langkah 4: Export Data ke Excel
+
+Fitur ini memungkinkan Anda untuk mengunduh rekapitulasi data peminjaman dalam format Excel.
+
+![Export Excel ](/images/sinergi/sarpras/sarpras-08.JPG)
+
+1.  Dari halaman utama (Mode List Sarpras), klik tombol **`Export Excel`**.
+2.  Sebuah form akan muncul, meminta Anda untuk memilih **Tahun** dan **Bulan** dari data yang ingin diexport.
+3.  Pilih periode yang diinginkan, lalu klik tombol **`Export`** di dalam form tersebut.
+
+![Pilih Periode Export Sarpras ](/images/sinergi/sarpras/sarpras-09.JPG)
+
+4.  File Excel akan otomatis terunduh ke perangkat Anda.
+
