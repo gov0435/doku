@@ -1,0 +1,448 @@
+# Guide Book: Pegawai (Pengaju Kegiatan)
+
+## Role: Pegawai
+
+**Akses**: Semua pegawai yang login dapat membuat agenda.
+
+**URL**: `/app/tape-ketan`
+
+---
+
+## 1. Membuat Agenda Baru
+
+### Langkah 1: Buka Menu Tape Ketan
+1. Login ke sistem Sinergi
+2. Klik menu **Tape Ketan** di dashboard
+3. Klik tombol **+ Buat Agenda Baru**
+
+### Langkah 2: Isi Informasi Kegiatan
+
+Form yang harus diisi:
+
+#### A. Informasi Umum
+| Field | Wajib | Keterangan |
+|-------|-------|------------|
+| **Judul Kegiatan** | ✅ | Nama lengkap kegiatan |
+| **Tujuan Kegiatan** | ❌ | Deskripsi tujuan |
+| **Lokasi Kegiatan** | ❌ | Tempat pelaksanaan |
+| **Tanggal Mulai** | ✅ | Tanggal awal |
+| **Tanggal Selesai** | ✅ | Tanggal akhir |
+| **Jam Pembukaan** | ❌ | Waktu pembukaan |
+
+#### B. Klasifikasi & Jenis
+| Field | Wajib | Opsi |
+|-------|-------|------|
+| **Klasifikasi** | ✅ | Prioritas, Inovasi, Optimalisasi, Arahan Pusat |
+| **Jenis Kegiatan** | ✅ | Diklat, Bimtek, Workshop, Webinar, FGD, Rakor, Sosialisasi, Monev, Layanan Teknis, Capacity Building, Lainnya |
+| **Moda** | ✅ | Luring, Daring, Hybrid |
+| **Paket Meeting** | ❌ | FullDay, FullBoard, None (otomatis None jika Daring) |
+| **Pendanaan** | ✅ | Rupiah Murni, PNBP, Sharing Cost |
+
+#### C. Sasaran & Target
+| Field | Wajib | Keterangan |
+|-------|-------|------------|
+| **Jumlah Sasaran** | ✅ | Jumlah peserta target |
+| **Unsur Sasaran** | ❌ | Guru, Kepsek, Tendik, Dinas Pendidikan, Operator, Dosen, Siswa, UPT, KGTK, Umum |
+
+#### D. Ketua Panitia
+| Field | Wajib | Keterangan |
+|-------|-------|------------|
+| **Ketua Panitia** | ❌ | Pilih dari database staf (akan otomatis jadi anggota dengan peran Ketua Panitia) |
+
+### Langkah 3: Simpan
+- Klik **Simpan** untuk menyimpan sebagai draft
+- Agenda akan memiliki status **Draft**
+
+---
+
+## 2. Mengelola Anggota Panitia
+
+**Syarat pengajuan proposal**: Minimal 1 anggota panitia (selain creator)
+
+### Langkah:
+1. Buka agenda yang sudah dibuat
+2. Klik tab **Anggota**
+3. Klik **Tambah Anggota**
+4. Pilih **Staf**, **Peran**, dan **Keterangan**
+5. Klik **Simpan**
+
+### Peran yang Tersedia:
+- Penanggung Jawab
+- Ketua Panitia (otomatis jika ada ketua_id)
+- Anggota Panitia
+- Peserta
+- Narasumber
+- Pendamping
+
+### Tips:
+- Urutan anggota dapat diatur dengan drag & drop
+- Ketua Panitia tidak bisa dihapus jika sudah diset dari form utama
+
+---
+
+## 3. Mengajukan Proposal
+
+### Prasyarat:
+- ✅ Minimal 1 anggota panitia
+- ✅ Dokumen proposal siap (PDF, max 25MB)
+
+### Langkah:
+1. Buka agenda dengan status **Draft**
+2. Di halaman **Info**, akan muncul callout **Draft Kegiatan**
+3. Jika anggota sudah lengkap, klik tombol **Ajukan Proposal**
+4. Upload dokumen proposal (PDF, max 25MB)
+5. Klik **Ajukan**
+
+### Setelah Pengajuan:
+- Status berubah: **Draft** → **Menunggu Verifikasi Perencanaan**
+- Proposal masuk ke dashboard **Tim Perencanaan**
+- Notifikasi dikirim ke Tim Perencanaan
+
+---
+
+## 4. Menindaklanjuti Revisi
+
+### Jika Status: Perlu Perbaikan (Perencanaan)
+
+**Artinya**: Tim Perencanaan meminta revisi pada proposal.
+
+**Langkah**:
+1. Buka agenda dengan status `revision_required`
+2. Baca catatan perbaikan di halaman **Info**
+3. Edit agenda sesuai catatan:
+   - Update informasi kegiatan (jika perlu)
+   - Upload dokumen proposal yang direvisi
+4. Klik **Ajukan Proposal** kembali
+
+### Jika Status: Perlu Perbaikan (Kepala)
+
+**Artinya**: Kepala meminta revisi setelah Tim Perencanaan approve.
+
+**Langkah**:
+1. Buka agenda dengan status `revision_required_by_head`
+2. Baca catatan perbaikan dari Kepala
+3. Lakukan revisi yang diminta
+4. Upload dokumen revisi (jika ada)
+5. Klik **Ajukan Proposal** untuk submit ulang
+
+---
+
+## 5. Mengelola Tugas (Task Management)
+
+**Akses**: Tersedia setelah agenda dibuat.
+
+**Editable**: Semua status kecuali `Rejected`
+
+### Langkah:
+1. Buka agenda
+2. Klik tab **Tugas**
+3. Edit daftar tugas yang sudah ada (template otomatis berdasarkan jenis kegiatan)
+4. Tambah tugas manual (opsional):
+   - Klik **Tambah Tugas**
+   - Isi **Nama Tugas**
+   - Pilih **Penanggung Jawab** (anggota panitia)
+   - Set **Wajib** (Ya/Tidak)
+5. Klik **Simpan**
+
+### Tugas Otomatis (Template)
+Berdasarkan jenis kegiatan, sistem membuat tugas otomatis:
+- Proposal
+- KAK RAB
+- Notula Rapat
+- Jadwal Kegiatan
+- SK Kegiatan Tim
+- Surat Permohonan Narasumber/Undangan Peserta
+- SPT Panitia/Peserta/Narasumber
+- Panduan Pelaksanaan
+- Daftar Hadir
+- Biodata Narasumber/Peserta
+- Daftar Penerimaan ATK/Kit
+- Kumpul Materi Narasumber
+- SPJ Keuangan
+- Dokumentasi Foto/Video
+- Laporan Kegiatan
+
+**Catatan**: 
+- Tugas template tidak bisa dihapus
+- Tugas manual bisa dihapus
+- SPJ Keuangan selalu `is_required = false`
+
+---
+
+## 6. Mengelola Dokumen
+
+### 6.1 Dokumen Proposal (Saat Pengajuan)
+
+**Lokasi**: Tab **Info** → Callout **Draft Kegiatan**
+
+**Action**: Upload saat mengajukan proposal
+
+### 6.2 Dokumen Telaah & KAK-RAB
+
+**Upload oleh**: Tim Perencanaan (bukan pegawai)
+
+**Lokasi**: Tab **Dokumen** (setelah approval perencanaan)
+
+### 6.3 Dokumen Tugas (Saat Pelaksanaan)
+
+**Akses**: Tersedia jika `approval_status = approved`
+
+**Langkah Upload**:
+1. Buka agenda dengan status **Disetujui**
+2. Klik tab **Dokumen**
+3. Pada tabel tugas, klik **Upload Dokumen** untuk tugas yang belum diupload
+4. Pilih tipe:
+   - **File**: Upload PDF/Word/Excel (max 25MB)
+   - **Link**: Paste URL dokumen
+5. Klik **Simpan**
+
+**Dokumen yang Bisa Diupload**:
+- Dokumen per tugas (Notula, Jadwal, SK, dll)
+- Dokumen Lainnya (Proposal, Telaah, KAK-RAB - readonly)
+
+### 6.4 Hapus Dokumen
+
+**Aturan**:
+- ✅ Dokumen tugas bisa dihapus oleh uploader
+- ❌ Proposal, Dokumen Telaah, KAK-RAB **tidak bisa dihapus**
+- ❌ Dokumen milik orang lain tidak bisa dihapus
+
+**Langkah**:
+1. Klik **Aksi** → **Hapus** pada dokumen
+2. Konfirmasi penghapusan
+3. File akan dihapus dari S3 storage
+
+---
+
+## 7. Mengelola Peserta
+
+**Akses**: Tersedia jika `approval_status = approved`
+
+### 7.1 Tambah Manual
+1. Buka agenda
+2. Klik tab **Peserta**
+3. Klik **Tambah Peserta**
+4. Isi data peserta (Nama, Email, Telepon, Instansi, dll)
+5. Klik **Simpan**
+
+### 7.2 Import dari Excel
+**Syarat**:
+- `approval_status = approved`
+- `agenda_status = in_progress` atau `report_preparation`
+- User adalah creator, ketua, atau anggota agenda
+
+**Format Excel**:
+| Kolom | Wajib | Keterangan |
+|-------|-------|------------|
+| nama | ✅ | Nama lengkap |
+| jenis_kelamin | ❌ | L/P |
+| email | ❌ | Email peserta |
+| telepon | ❌ | Nomor telepon |
+| pendidikan | ❌ | Pendidikan terakhir |
+| pekerjaan | ❌ | Pekerjaan |
+| nip | ❌ | NIP (jika PNS) |
+| instansi | ❌ | Instansi asal |
+| jabatan | ❌ | Jabatan |
+| provinsi | ❌ | Provinsi asal |
+| kab_kota | ❌ | Kabupaten/Kota |
+| peran | ❌ | peserta/narasumber |
+
+**Langkah**:
+1. Klik tab **Peserta**
+2. Klik **Import Peserta**
+3. Download template (opsional)
+4. Upload file Excel
+5. Klik **Import**
+
+---
+
+## 8. Mengisi Evaluasi Kegiatan
+
+**Akses**: Hanya jika `approval_status = approved`
+
+**Waktu Pengisian**: Setelah kegiatan selesai (status `report_preparation`)
+
+### Langkah:
+1. Buka agenda
+2. Klik tab **Evaluasi**
+3. Isi field berikut:
+
+#### A. Faktor Keberhasilan
+- Deskripsi faktor-faktor yang mendukung keberhasilan
+- Gunakan markdown editor (bullet list, ordered list)
+
+#### B. Jenis Kendala
+- Pilih satu atau lebih:
+  - Anggaran
+  - Waktu
+  - SDM
+  - Sarpras
+  - Cuaca
+  - Lainnya
+
+#### C. Kendala
+- Deskripsi detail kendala yang dihadapi
+- Gunakan markdown editor
+
+#### D. Solusi
+- Deskripsi solusi yang diterapkan
+- Gunakan markdown editor
+
+4. Klik **Simpan**
+
+### Tips:
+- Evaluasi yang lengkap akan meningkatkan kualitas laporan
+- Data evaluasi digunakan untuk monitoring SPI
+
+---
+
+## 9. Mengelola Anggaran
+
+**Akses**: Hanya status **Draft**
+
+**Editable**: Hanya `approval_status = draft`
+
+### Langkah:
+1. Buka agenda dengan status **Draft**
+2. Klik tab **Anggaran**
+3. Isi field:
+   - **Rencana Anggaran**: Input nominal (Rp)
+   - **Realisasi Anggaran**: Kosongkan (diisi tim keuangan)
+   - **Klasifikasi Program**: Pilih dari dropdown
+   - **Paket Meeting**: Pilih sesuai kebutuhan
+   - **Pendanaan**: Pilih sumber dana
+4. Klik **Simpan**
+
+**Catatan**:
+- Setelah diajukan, anggaran hanya bisa diedit oleh Tim Perencanaan
+- Realisasi anggaran diisi oleh tim keuangan setelah kegiatan selesai
+
+---
+
+## 10. Monitoring Status
+
+### Status yang Perlu Dipantau
+
+| Status | Aksi yang Diperlukan |
+|--------|---------------------|
+| **Draft** | Lengkapi anggota, upload proposal, ajukan |
+| **Menunggu Verifikasi Perencanaan** | Tunggu review, pantau notifikasi |
+| **Perlu Perbaikan** | Baca catatan, revisi, ajukan ulang |
+| **Menunggu Approval Kepala** | Tunggu review kepala |
+| **Disetujui** | Mulai pelaksanaan, upload dokumen, import peserta |
+| **Sedang Berjalan** | Lanjutkan kegiatan, dokumentasi |
+| **Penyusunan Laporan** | Isi evaluasi, lengkapi dokumen |
+| **Arsip** | Kegiatan selesai |
+
+### Cara Monitoring:
+1. Buka dashboard **Tape Ketan**
+2. Lihat kolom **Status** pada tabel agenda
+3. Badge warna menunjukkan status:
+   - 🟡 Kuning: Draft/InProgress
+   - 🔵 Biru: Submitted/ApprovedByPlanning
+   - 🟢 Hijau: Approved
+   - 🔴 Merah: Rejected/Pending
+   - 🟠 Orange: RevisionRequired
+
+---
+
+## 11. Microsite (Opsional)
+
+**Fitur**: Membuat microsite otomatis untuk kegiatan
+
+**Syarat**:
+- `approval_status = approved`
+- Belum ada microsite
+
+### Langkah:
+1. Buka agenda yang sudah approved
+2. Di halaman **Info**, cari section **Microsite**
+3. Klik **Buat Microsite**
+4. Microsite akan dibuat otomatis dengan:
+   - Judul: Nama agenda
+   - Tema: Default
+   - Status: Active
+
+**URL Microsite**: `/microsite/{slug}`
+
+---
+
+## Tips & Best Practices
+
+### ✅ DO (Lakukan)
+1. **Tambah minimal 1 anggota** sebelum mengajukan proposal
+2. **Upload proposal berkualitas** (PDF jelas, lengkap)
+3. **Pantau notifikasi** untuk update status approval
+4. **Dokumentasi lengkap** selama pelaksanaan
+5. **Isi evaluasi** segera setelah kegiatan selesai
+6. **Import peserta** jika jumlah banyak (>10)
+
+### ❌ DON'T (Jangan)
+1. **Jangan ajukan proposal kosong** tanpa anggota
+2. **Jangan upload file blur** atau tidak terbaca
+3. **Jangan edit agenda** setelah approved (hanya admin)
+4. **Jangan hapus dokumen** penting (Proposal, Telaah, KAK-RAB)
+5. **Jangan lupa isi evaluasi** (wajib untuk pelaporan)
+
+---
+
+## Troubleshooting
+
+### Problem: Tombol "Ajukan Proposal" Tidak Muncul
+
+**Penyebab**:
+- ❌ Belum ada anggota panitia
+- ❌ Status bukan Draft/Revision Required
+
+**Solusi**:
+1. Tambah minimal 1 anggota di tab **Anggota**
+2. Pastikan status agenda adalah **Draft**
+
+### Problem: Upload Dokumen Gagal
+
+**Penyebab**:
+- ❌ File > 25MB
+- ❌ Format file tidak didukung
+- ❌ Koneksi internet terganggu
+
+**Solusi**:
+1. Compress file PDF (< 25MB)
+2. Pastikan format: PDF, DOC, DOCX, XLS, XLSX
+3. Cek koneksi internet
+4. Coba upload ulang
+
+### Problem: Tidak Bisa Edit Agenda
+
+**Penyebab**:
+- ❌ Status approval bukan Draft/Revision Required
+- ❌ Bukan creator/agenda
+- ❌ Status Archived/Cancel
+
+**Solusi**:
+1. Tunggu revisi dari Tim Perencanaan/Kepala
+2. Hubungi admin jika perlu perubahan mendesak
+
+### Problem: Import Peserta Error
+
+**Penyebab**:
+- ❌ Format Excel salah
+- ❌ Kolom wajib kosong
+- ❌ Status approval belum Approved
+
+**Solusi**:
+1. Download template import
+2. Pastikan kolom **nama** terisi
+3. Pastikan `approval_status = approved`
+
+---
+
+## Referensi
+
+- [01-pengantar.md](01-pengantar.md) - Overview & Workflow
+- [03-tim-perencanaan.md](03-tim-perencanaan.md) - Guide Tim Perencanaan
+- [04-kepala.md](04-kepala.md) - Guide Kepala
+
+---
+
+**Changelog**:
+- **2026-02-27**: Guide pertama kali dibuat

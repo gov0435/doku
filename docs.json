@@ -39,6 +39,27 @@
               "sinergi/lapor-pak"
             ]
           }
+          
+        ]
+      },
+      {
+        "tab": "Tape Ketan",
+        "groups": [
+          {
+            "group": "Tata Kelola Kegiatan",
+            "pages": [
+              "sinergi/tape-ketan/intro"
+            ]
+          },
+          {
+            "group": "Akses Tape Ketan",
+            "pages": [
+              "sinergi/tape-ketan/akses-pegawai",
+              "sinergi/tape-ketan/akses-tim-perencanaan",
+              "sinergi/tape-ketan/akses-kepala",
+              "sinergi/tape-ketan/akses-spi"
+            ]
+          }
         ]
       },
       {

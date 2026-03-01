@@ -1,0 +1,746 @@
+---
+title: 'Guide Book: SPI (Monitoring & Evaluasi)'
+---
+## Role: SPI (Satuan Pengawas Internal)
+
+**Akses**: User dengan role `spi` atau `admin`
+
+**URL**: `/app/monitoring-spi`
+
+**Navigation**: Approval Agenda → Monitoring SPI
+
+---
+
+## Overview
+
+SPI memiliki akses **view-only** untuk melakukan **monitoring dan evaluasi** terhadap seluruh agenda kegiatan dalam organisasi.
+
+### Tugas Utama:
+1. ✅ Monitoring status seluruh agenda kegiatan
+2. ✅ Review dokumen dan laporan kegiatan
+3. ✅ Evaluasi pasca kegiatan
+4. ✅ Audit trail approval workflow
+5. ✅ Analisis impact assessment
+6. ✅ Kirim notifikasi peringatan administrasi belum lengkap
+
+---
+
+## 1. Akses Dashboard Monitoring SPI
+
+### Langkah:
+1. Login ke sistem Sinergi
+2. Klik menu **Monitoring SPI** di grup **Approval Agenda**
+3. Lihat daftar agenda kegiatan yang sedang berjalan atau selesai
+
+### Fitur Dashboard:
+- **Table View**: Daftar semua agenda dengan filter & search
+- **Status Badges**: Warna-warni status approval & agenda
+- **Widget Overview**: Statistik kegiatan
+- **Filter**: Berdasarkan status, jenis, klasifikasi, tanggal
+
+---
+
+## 2. Monitoring Status Agenda
+
+### 2.1 Status yang Dimonitor
+
+#### Approval Status (Status Persetujuan)
+
+| Status | Badge | Deskripsi |
+|--------|-------|-----------|
+| `draft` | 🟡 Draft | Agenda baru dibuat, belum diajukan |
+| `submitted` | 🔵 Submitted | Menunggu verifikasi Tim Perencanaan |
+| `approved_by_planning` | 🔵 Approved by Planning | Menunggu approval Kepala |
+| `revision_required` | 🟠 Revision Required | Perlu perbaikan dari Tim Perencanaan |
+| `revision_required_by_head` | 🟠 Revision Required by Head | Perlu perbaikan dari Kepala |
+| `approved` | 🟢 Approved | Disetujui penuh, siap dilaksanakan |
+| `pending` | 🔴 Pending | Ditunda/dibatalkan |
+| `rejected` | 🔴 Rejected | Ditolak |
+
+#### Agenda Status (Status Pelaksanaan)
+
+| Status | Badge | Deskripsi |
+|--------|-------|-----------|
+| `draft` | 🟡 Draft | Tahap perencanaan |
+| `not_started` | 🔵 Belum Dimulai | Approved tapi belum mulai |
+| `in_progress` | 🟠 Sedang Berjalan | Kegiatan sedang dilaksanakan |
+| `report_preparation` | 🟣 Penyusunan Laporan | Kegiatan selesai, sedang laporan |
+| `archived` | 🟢 Archived | Kegiatan selesai dan diarsipkan |
+| `cancel` | 🔴 Dibatalkan | Kegiatan dibatalkan |
+
+### 2.2 Filter Monitoring
+
+**Filter yang Tersedia**:
+- Status Approval
+- Status Agenda
+- Jenis Kegiatan (Diklat, Bimtek, Workshop, dll)
+- Klasifikasi (Prioritas, Inovasi, dll)
+- Tanggal (range)
+- Creator/PIC
+
+**Cara Filter**:
+1. Klik tombol **Filter** di atas tabel
+2. Pilih kriteria yang diinginkan
+3. Klik **Apply**
+
+---
+
+## 3. View Detail Agenda
+
+### Langkah:
+1. Klik pada agenda yang ingin dilihat detailnya
+2. Halaman **Info** akan terbuka
+
+### Informasi yang Tersedia:
+
+#### A. Header Section
+- Judul kegiatan
+- Status badges (Approval & Agenda)
+- Creator & tanggal pembuatan
+- Ketua panitia
+
+#### B. Detail Kegiatan
+- Tujuan kegiatan
+- Lokasi & tanggal pelaksanaan
+- Moda (Luring/Daring/Hybrid)
+- Jumlah sasaran
+- Unsur sasaran
+
+#### C. Anggaran
+- Rencana anggaran
+- Realisasi anggaran
+- Selisih anggaran
+- Klasifikasi program
+- Pendanaan
+
+#### D. Timeline Approval
+- Tanggal submit
+- Tanggal approval Tim Perencanaan
+- Tanggal approval Kepala
+- Catatan approval
+
+#### E. Administrasi Status
+- Lengkap dokumen: ✅/❌
+- Lengkap evaluasi: ✅/❌
+- Lengkap peserta: ✅/❌
+
+---
+
+## 4. Tab Monitoring
+
+### 4.1 Tab Anggota
+
+**Informasi**:
+- Daftar panitia lengkap
+- Peran masing-masing anggota
+- Jumlah total anggota
+
+**Monitoring Point**:
+- ✅ Apakah panitia sudah lengkap?
+- ✅ Apakah ada peran krusial yang kosong?
+- ✅ Apakah anggota sesuai dengan kompetensi?
+
+### 4.2 Tab Tugas
+
+**Informasi**:
+- Daftar tugas (template + manual)
+- Status upload dokumen per tugas
+- Penanggung jawab per tugas
+- Wajib/tidak wajib
+
+**Monitoring Point**:
+- ✅ Berapa % tugas yang sudah selesai?
+- ✅ Tugas wajib mana yang belum diupload?
+- ✅ Apakah dokumentasi lengkap?
+
+**Status Upload**:
+- 🟢 **Sudah Upload**: Dokumen tersedia
+- 🔴 **Belum Upload**: Dokumen belum tersedia
+
+### 4.3 Tab Dokumen
+
+**Informasi**:
+- Dokumen Proposal
+- Dokumen Telaah (dari Tim Perencanaan)
+- KAK & RAB (dari Tim Perencanaan)
+- Dokumen tugas (per jenis)
+- Dokumen lainnya
+
+**Monitoring Point**:
+- ✅ Apakah dokumen wajib lengkap?
+- ✅ Apakah dokumen dapat diakses?
+- ✅ Apakah upload sesuai timeline?
+
+**Jenis Dokumen**:
+1. **Proposal** (desain kegiatan)
+2. **Dokumen Telaah** (review Tim Perencanaan)
+3. **KAK & RAB** (kerangka kerja & anggaran)
+4. **Dokumen Tugas** (notula, jadwal, SK, dll)
+5. **Laporan Kegiatan** (pasca kegiatan)
+
+### 4.4 Tab Evaluasi
+
+**Informasi**:
+- Faktor keberhasilan
+- Jenis kendala
+- Detail kendala
+- Solusi yang diterapkan
+
+**Monitoring Point**:
+- ✅ Apakah evaluasi sudah diisi?
+- ✅ Apa faktor keberhasilan utama?
+- ✅ Apa kendala yang sering muncul?
+- ✅ Apakah solusi efektif?
+
+**Waktu Pengisian**: 
+- Evaluasi diisi saat `approval_status = approved`
+- Idealnya setelah kegiatan selesai
+
+### 4.5 Tab Anggaran
+
+**Informasi**:
+- Rencana anggaran (awal)
+- Realisasi anggaran (dari tim keuangan)
+- Selisih anggaran
+- Klasifikasi program
+- Pendanaan
+
+**Monitoring Point**:
+- ✅ Apakah anggaran sesuai rencana?
+- ✅ Apakah ada overbudget?
+- ✅ Apakah klasifikasi tepat?
+- ✅ Apakah pendanaan sesuai sumber?
+
+### 4.6 Tab Peserta
+
+**Informasi**:
+- Daftar peserta lengkap
+- Jumlah peserta
+- Peran (peserta/narasumber)
+- Asal instansi
+
+**Monitoring Point**:
+- ✅ Apakah peserta sesuai target?
+- ✅ Apakah jumlah mencapai sasaran?
+- ✅ Apakah narasumber kompeten?
+
+---
+
+## 5. Notifikasi Administrasi Belum Lengkap
+
+### 5.1 Overview
+
+SPI dapat mengirimkan **peringatan otomatis** ke grup Telegram & Google Chat apabila administrasi sebuah agenda belum lengkap. Notifikasi ini berisi checklist kelengkapan (Dokumen, Evaluasi, Peserta) agar panitia segera melengkapi.
+
+### 5.2 Kriteria Tombol Muncul
+
+Tombol **"Ingatkan Administrasi"** hanya muncul jika:
+- `agenda_status` = `In Progress` atau `Report Preparation`
+- `administrasi_status` = `Belum Lengkap`
+
+Tombol **tidak muncul** untuk:
+- Agenda `Draft`, `Not Started`, `Archived`, atau `Cancel`
+- Agenda yang administrasinya sudah `Lengkap`
+
+### 5.3 Cara Menggunakan
+
+1. Buka halaman **Detail Agenda** via menu Monitoring SPI
+2. Klik tombol **🔔 Ingatkan Administrasi** (warna kuning, di header)
+3. Modal konfirmasi akan muncul: *"Notifikasi akan dikirim ke grup Telegram & Google Chat. Lanjutkan?"*
+4. Klik **Ya, Kirim**
+5. Notifikasi terkirim ke Telegram & Google Chat, serta tercatat di audit log
+
+### 5.4 Format Notifikasi
+
+**Telegram:**
+```
+🔔 Info SPI
+━━━━━━━━━━━━━━━
+📌 Kegiatan: Nama Agenda
+👤 Ketua: Nama Ketua
+
+📋 Kelengkapan Administrasi:
+   📄 Dokumen: ✅ Lengkap / ❌ Belum Lengkap
+   📝 Evaluasi: ✅ Lengkap / ❌ Belum Lengkap
+   👥 Peserta: ✅ Lengkap / ❌ Belum Lengkap
+
+⚠️ Mohon segera melengkapi data di sistem Sinergi.
+
+⏰ Waktu: 28 Feb 2026, 14:30 WIB
+```
+
+### 5.5 Anti-Spam
+
+- Setelah notifikasi dikirim, tombol akan menampilkan pesan **"Notifikasi Sudah Dikirim"** jika diklik lagi dalam waktu **1 jam**.
+- Cooldown berlaku per agenda (agenda berbeda dapat dikirim notifikasi bersamaan).
+
+### 5.6 Audit Trail
+
+Setiap pengiriman notifikasi dicatat di `activity_logs` (Neon DB) dengan:
+- `activity_type`: `approval_notification_sent`
+- `notification_type`: `incomplete_administration`
+- Deskripsi: *"Peringatan administrasi belum lengkap dikirim oleh SPI untuk agenda: [nama]"*
+
+---
+
+## 6. Impact Assessment Monitoring
+
+### 6.1 Akses Impact Score
+
+**Lokasi**: Halaman **Info** → Section **Impact Assessment**
+
+**Tersedia**: Hanya untuk agenda dengan status `approved`
+
+### 6.2 Metrik yang Dimonitor
+
+| Metrik | Deskripsi | Range |
+|--------|-----------|-------|
+| **Impact Score** | Score total (0-100) | 0-100 |
+| **Impact Star Overall** | Rata-rata bintang | 1.00-5.00 |
+| **Dampak Strategis** | Rating strategis | 1-5 ⭐ |
+| **Dampak Manfaat** | Rating manfaat | 1-5 ⭐ |
+| **Konsekuensi** | Rating konsekuensi | 1-5 ⭐ |
+| **Multiplier Effect** | Rating multiplier | 1-5 ⭐ |
+
+### 6.3 Analisis Impact
+
+**Kategori Impact**:
+
+| Score | Category | Deskripsi |
+|-------|----------|-----------|
+| 80-100 | **High Impact** | Kegiatan sangat strategis |
+| 60-79 | **Medium Impact** | Kegiatan cukup strategis |
+| 40-59 | **Low Impact** | Kegiatan kurang strategis |
+| 0-39 | **Very Low Impact** | Kegiatan tidak strategis |
+
+**Monitoring Questions**:
+- ✅ Apakah kegiatan dengan high impact mendapat prioritas?
+- ✅ Apakah alokasi anggaran sesuai dengan impact?
+- ✅ Apakah ada kegiatan low impact yang seharusnya tidak dilaksanakan?
+
+---
+
+## 7. Approval Workflow Audit
+
+### 6.1 Audit Trail
+
+**Informasi yang Tersedia**:
+- Siapa yang submit proposal
+- Kapan Tim Perencanaan approve
+- Siapa yang approve dari Tim Perencanaan
+- Catatan Tim Perencanaan
+- Kapan Kepala approve
+- Catatan Kepala
+- Impact assessment details
+
+### 6.2 Monitoring Timeline
+
+**Timeline yang Dimonitor**:
+
+| Stage | Metric | Target |
+|-------|--------|--------|
+| Draft → Submitted | Durasi persiapan | < 7 hari |
+| Submitted → ApprovedByPlanning | Review Tim Perencanaan | < 5 hari |
+| ApprovedByPlanning → Approved | Review Kepala | < 7 hari |
+| Approved → In Progress | Waktu mulai kegiatan | < 30 hari |
+| In Progress → Report Preparation | Durasi kegiatan | Sesuai jadwal |
+| Report Preparation → Archived | Penyusunan laporan | < 14 hari |
+
+### 6.3 Bottleneck Analysis
+
+**Identify Bottlenecks**:
+- ✅ Stage mana yang paling lama?
+- ✅ Apakah ada agenda yang stuck di stage tertentu?
+- ✅ Siapa yang sering delay approval?
+
+---
+
+## 8. Reporting & Export
+
+### 7.1 Laporan yang Dapat Diakses
+
+**Tersedia untuk SPI**:
+1. **Laporan Daftar Kegiatan** (semua agenda)
+2. **Laporan Status Approval** (per status)
+3. **Laporan Impact Assessment** (high impact activities)
+4. **Laporan Evaluasi** (faktor keberhasilan & kendala)
+5. **Laporan Administrasi** (kelengkapan dokumen)
+
+### 7.2 Cara Export
+
+**Format Export**:
+- PDF (untuk laporan formal)
+- Excel (untuk analisis data)
+- CSV (untuk import ke sistem lain)
+
+**Langkah**:
+1. Filter agenda yang diinginkan
+2. Klik tombol **Export** di atas tabel
+3. Pilih format (PDF/Excel/CSV)
+4. Download laporan
+
+---
+
+## 9. Search & Advanced Filtering
+
+### 8.1 Search
+
+**Field yang Dapat Dicari**:
+- Judul kegiatan
+- Nama creator
+- Nama ketua panitia
+- Lokasi kegiatan
+
+**Cara**:
+1. Ketik keyword di search box
+2. Tekan Enter atau klik search icon
+3. Hasil akan difilter otomatis
+
+### 8.2 Advanced Filter
+
+**Filter Kombinasi**:
+```
+Status = Approved 
++ Jenis = Workshop 
++ Klasifikasi = Prioritas 
++ Tanggal = 2026
+```
+
+**Cara**:
+1. Klik **Filter**
+2. Tambahkan multiple criteria
+3. Klik **Apply**
+
+---
+
+## 10. Notifikasi (View-Only)
+
+### 9.1 Notifikasi yang Diterima
+
+**SPI menerima notifikasi untuk**:
+- ✅ Agenda baru yang diajukan
+- ✅ Agenda yang disetujui
+- ✅ Agenda yang ditolak/ditunda
+- ✅ Agenda yang selesai & diarsipkan
+
+**Catatan**: Notifikasi SPI bersifat **informational** (tidak perlu action)
+
+### 9.2 Cara Cek Notifikasi
+1. Dashboard → Bell icon
+2. Telegram bot (jika terintegrasi)
+
+---
+
+## 11. Business Rules
+
+### 10.1 Akses SPI & Admin
+
+**Dapat**:
+- ✅ View semua agenda (milik sendiri & orang lain) - **SPI & Admin**
+- ✅ View semua dokumen - **SPI & Admin**
+- ✅ View impact assessment - **SPI & Admin**
+- ✅ View approval history - **SPI & Admin**
+- ✅ Export laporan - **SPI & Admin**
+- ✅ Filter & search - **SPI & Admin**
+- ✅ **Archive agenda** (jika administrasi lengkap) - **SPI & Admin**
+- ✅ **Edit agenda** - **Admin only**
+
+**Tidak Dapat**:
+- ❌ Create agenda - **SPI only**
+- ❌ Upload dokumen - **SPI only**
+- ❌ Approve/reject agenda - **SPI only**
+- ❌ Edit anggota/panitia - **SPI only**
+
+### 10.2 Archive Agenda (Khusus SPI & Admin)
+
+**Status `archived` ditetapkan manual oleh SPI atau Admin** setelah verifikasi kesesuaian dokumen yang diunggah.
+
+#### Indikator Agenda Bisa Diarsipkan:
+
+| Indikator | Kriteria | Cara Cek |
+|-----------|----------|----------|
+| **Approval Status** | `Approved` | Badge hijau di tabel |
+| **Agenda Status** | `ReportPreparation` | Kegiatan selesai, sedang laporan |
+| **Lengkap Dokumen** | Semua tugas `is_required=true` punya dokumen | Tab Dokumen → Semua "Sudah Upload" |
+| **Lengkap Evaluasi** | Faktor keberhasilan, kendala, solusi terisi + jenis kendala | Tab Evaluasi → Semua field terisi |
+| **Lengkap Peserta** | Minimal 1 peserta dengan peran `peserta` | Tab Peserta → Ada daftar peserta |
+| **Administrasi Status** | `Lengkap` | Section Administrasi → Badge hijau |
+
+#### Cara Archive:
+1. Buka agenda dengan status **Penyusunan Laporan Administrasi**
+2. Verifikasi di tab **Dokumen**:
+   - Semua tugas wajib status = **Sudah Upload** ✅
+   - Dokumen Proposal, Telaah, KAK-RAB tersedia
+3. Verifikasi di tab **Evaluasi**:
+   - Faktor keberhasilan terisi
+   - Kendala & solusi terisi
+   - Jenis kendala dipilih
+4. Verifikasi di tab **Peserta**:
+   - Ada minimal 1 peserta
+5. Di halaman **Info**, akan muncul tombol **Archive Agenda** (hanya untuk role `spi` atau `admin`)
+6. Klik **Archive Agenda**
+7. Konfirmasi action
+8. Status berubah: `ReportPreparation` → `Archived`
+
+#### Catatan Penting:
+- ⚠️ Archive bersifat **final** (tidak dapat diubah)
+- ✅ Agenda archived masih bisa dilihat (view-only)
+- 📊 Agenda archived masuk statistik "Kegiatan Selesai"
+- 🔒 Hanya role `spi` dan `admin` yang bisa archive agenda
+- 👑 **Admin** juga dapat edit agenda (SPI view-only)
+
+### 10.2 Data Visibility
+
+**Semua Data Visible**:
+- Agenda dengan status apapun
+- Dokumen lengkap (proposal, telaah, KAK-RAB, laporan)
+- Impact assessment
+- Approval history
+- Evaluasi kegiatan
+
+---
+
+## 12. Dashboard Overview Widget
+
+### Widget yang Tersedia:
+
+#### Total Agenda
+- **All**: Total semua agenda
+- **Approved**: Agenda yang disetujui
+- **In Progress**: Kegiatan berjalan
+- **Archived**: Kegiatan selesai
+
+#### Status Breakdown
+- Pie chart distribusi status approval
+- Bar chart distribusi status agenda
+
+#### Impact Distribution
+- High Impact (> 80)
+- Medium Impact (60-79)
+- Low Impact (< 60)
+
+#### Timeline
+- Agenda bulan ini
+- Agenda bulan depan
+- Overdue agenda
+
+---
+
+## 13. Checklist Monitoring SPI
+
+### Harian:
+- [ ] Cek agenda baru yang diajukan
+- [ ] Cek agenda yang menunggu approval (stuck > 3 hari)
+- [ ] Cek notifikasi
+
+### Mingguan:
+- [ ] Review status semua agenda aktif
+- [ ] Monitoring timeline approval
+- [ ] Identifikasi bottleneck
+- [ ] Export laporan mingguan
+
+### Bulanan:
+- [ ] Analisis impact assessment
+- [ ] Review evaluasi kegiatan selesai
+- [ ] Laporan bulanan ke manajemen
+- [ ] Identifikasi pola & trend
+
+### Triwulanan:
+- [ ] Comprehensive report
+- [ ] Rekomendasi perbaikan proses
+- [ ] Meeting dengan Tim Perencanaan
+
+---
+
+## 14. Troubleshooting
+
+### Problem: Tidak Bisa View Dokumen
+
+**Penyebab**:
+- ❌ Dokumen belum upload
+- ❌ Dokumen dihapus
+- ❌ Permission issue
+
+**Solusi**:
+1. Cek apakah dokumen sudah diupload
+2. Hubungi creator jika dokumen tidak ada
+3. Cek role user (harus `spi`)
+
+### Problem: Agenda Tidak Muncul
+
+**Penyebab**:
+- ❌ Filter aktif
+- ❌ Search keyword tidak match
+- ❌ Pagination
+
+**Solusi**:
+1. Reset filter
+2. Clear search
+3. Cek pagination
+
+### Problem: Impact Score Tidak Muncul
+
+**Penyebab**:
+- ❌ Agenda belum approved
+- ❌ Impact assessment belum diisi
+
+**Solusi**:
+1. Pastikan `approval_status = approved`
+2. Impact assessment diisi oleh Kepala saat approve
+
+---
+
+## 15. Tips & Best Practices
+
+### ✅ DO (Lakukan)
+1. **Monitor harian** untuk agenda yang stuck
+2. **Export laporan** mingguan untuk dokumentasi
+3. **Analisis impact** untuk prioritas kegiatan
+4. **Review evaluasi** untuk continuous improvement
+5. **Koordinasi** dengan Tim Perencanaan jika ada issue
+6. **Gunakan filter** untuk monitoring yang efisien
+
+### ❌ DON'T (Jangan)
+1. **Jangan edit** agenda (view-only)
+2. **Jangan share** dokumen sensitif ke pihak luar
+3. **Jangan ignore** agenda yang stuck terlalu lama
+4. **Jangan lupa** export laporan untuk dokumentasi
+
+---
+
+## 16. Workflow Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                       SPI Monitoring Workflow                 │
+└─────────────────────────────────────────────────────────────┘
+
+[Dashboard Tape Ketan]
+         │
+         ▼
+[View All Agendas]
+         │
+         ├──→ [Filter by Status]
+         │         │
+         │         ▼
+         │   [Monitoring per Stage]
+         │         │
+         │         ├──→ Draft
+         │         ├──→ Submitted (Review Tim Perencanaan)
+         │         ├──→ ApprovedByPlanning (Review Kepala)
+         │         ├──→ Approved (Pelaksanaan)
+         │         ├──→ In Progress
+         │         ├──→ Report Preparation
+         │         └──→ Archived
+         │
+         ├──→ [View Detail Agenda]
+         │         │
+         │         ├──→ Info
+         │         ├──→ Anggota
+         │         ├──→ Tugas (Status Upload)
+         │         ├──→ Dokumen (Kelengkapan)
+         │         ├──→ Evaluasi (Faktor & Kendala)
+         │         ├──→ Anggaran (Rencana vs Realisasi)
+         │         └──→ Peserta
+         │
+         ├──→ [Impact Assessment Monitoring]
+         │         │
+         │         ├──→ High Impact (80-100)
+         │         ├──→ Medium Impact (60-79)
+         │         └──→ Low Impact (<60)
+         │
+         ├──→ [Approval Timeline Audit]
+         │         │
+         │         ├──→ Durasi per Stage
+         │         ├──→ Identify Bottlenecks
+         │         └──→ Approval History
+         │
+         └──→ [Export Reports]
+                   │
+                   ├──→ PDF (Formal Report)
+                   ├──→ Excel (Data Analysis)
+                   └──→ CSV (Data Export)
+```
+
+---
+
+## 17. Referensi
+
+### Models
+- `App\Models\Agenda\Agenda`
+- `App\Models\Agenda\AgendaAnggota`
+- `App\Models\Agenda\AgendaPeserta`
+- `App\Models\Agenda\AgendaTugas`
+- `App\Models\Agenda\AgendaDokumen`
+- `App\Models\Agenda\AprovalAgenda`
+
+### Enums
+- `App\Enums\Agenda\ApprovalStatus`
+- `App\Enums\Agenda\AgendaStatus`
+- `App\Enums\Agenda\JenisAgenda`
+- `App\Enums\Agenda\KlasifikasiAgenda`
+
+### Filament Resources
+- `App\Filament\Resources\Agendas\AgendaResource`
+
+---
+
+## 18. Referensi Guide Lain
+
+- [01-pengantar.md](01-pengantar.md) - Overview & Workflow
+- [02-pegawai.md](02-pegawai.md) - Guide Pegawai
+- [03-tim-perencanaan.md](03-tim-perencanaan.md) - Guide Tim Perencanaan
+- [04-kepala.md](04-kepala.md) - Guide Kepala
+
+---
+
+## 19. Template Laporan SPI
+
+### Template 1: Laporan Mingguan
+
+```markdown
+# Laporan Monitoring Mingguan - Tape Ketan
+**Periode**: [Tanggal Mulai] - [Tanggal Akhir]
+
+## Ringkasan
+- Total Agenda: X
+- Approved: X
+- In Progress: X
+- Selesai (Archived): X
+
+## Agenda Menunggu Approval
+- Tim Perencanaan: X agenda (avg duration: X hari)
+- Kepala: X agenda (avg duration: X hari)
+
+## Bottleneck
+- [Stage dengan delay tertinggi]
+
+## Rekomendasi
+- [Rekomendasi perbaikan]
+```
+
+### Template 2: Laporan Impact Assessment
+
+```markdown
+# Laporan Impact Assessment - Q1 2026
+
+## High Impact Activities (Score > 80)
+1. [Nama Kegiatan] - Score: XX
+2. [Nama Kegiatan] - Score: XX
+
+## Medium Impact Activities (Score 60-79)
+1. [Nama Kegiatan] - Score: XX
+
+## Low Impact Activities (Score < 60)
+1. [Nama Kegiatan] - Score: XX
+
+## Rekomendasi Prioritas
+- [Kegiatan high impact dapat prioritas anggaran]
+- [Kegiatan low impact perlu review ulang]
+```
+
+---
+
+**Changelog**:
+- **2026-02-28**: Tambah Section 5 — Notifikasi Administrasi Belum Lengkap (Telegram + Google Chat + anti-spam + audit trail)
+- **2026-02-27**: Guide pertama kali dibuat
