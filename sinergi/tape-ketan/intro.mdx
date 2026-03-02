@@ -18,7 +18,7 @@ Sistem ini dirancang untuk memastikan setiap kegiatan memiliki:
 
 ```mermaid
 graph TD
-    A[📝 Pegawai: Buat Agenda] --> B[📄 Upload Proposal]
+    A[📝 Pegawai: Buat Usulan Kegiatan] --> B[📄 Upload Desain Kegiatan]
     B --> C{🔍 Tim Perencanaan Review}
     C -->|Revisi| A
     C -->|Tolak| END1[❌ Ditolak]
@@ -79,18 +79,18 @@ graph TD
 #### Pegawai
 - Membuat agenda baru
 - Mengedit agenda sendiri (status draft/revision)
-- Upload proposal dan dokumen
+- Upload desain kegiatan dan dokumen
 - Mengelola anggota, peserta, tugas
 - Mengisi evaluasi
 
 #### Tim Perencanaan
-- Review proposal (approval 1)
+- Review desain kegiatan (approval 1)
 - Edit anggaran dan klasifikasi program
 - Upload dokumen telaah & KAK-RAB
 - Action: Setujui, Perlu Perbaikan, Tolak
 
 #### Kepala
-- Review proposal (approval 2)
+- Review desain kegiatan (approval 2)
 - Impact assessment (4 dimensi)
 - Edit susunan keanggotaan
 - Action: Setujui, Perlu Perbaikan, Tunda/Cancel, Tolak
@@ -124,10 +124,10 @@ Tape Ketan (/app/tape-ketan)
 
 ```
 Approval Perencanaan (/app/approval-perencanaans)
-└── Review Proposal (Tim Perencanaan)
+└── Review Desain Kegiatan (Tim Perencanaan)
 
 Approval Kepala (/app/approval-kepalas)
-└── Review Proposal (Kepala)
+└── Review Desain Kegiatan (Kepala)
 ```
 
 ---
@@ -156,9 +156,9 @@ Approval Kepala (/app/approval-kepalas)
 
 ## Business Rules Penting
 
-### Pengajuan Proposal
+### Pengajuan Proposal/Desain Kegiatan
 - Minimal 1 anggota panitia (selain creator)
-- Upload dokumen proposal wajib
+- Upload dokumen desain kegiatan wajib
 - Hanya bisa diajukan jika status `draft`, `revision_required`, atau `revision_required_by_head`
 
 ### Approval Perencanaan
@@ -185,7 +185,7 @@ Approval Kepala (/app/approval-kepalas)
 ## Notifikasi
 
 Sistem mengirim notifikasi otomatis untuk event:
-- ✅ Proposal diajukan
+- ✅ Proposal/Desain Kegiatan diajukan
 - ✅ Proposal disetujui (perencanaan/kepala)
 - ✅ Perlu perbaikan
 - ✅ Proposal ditolak
