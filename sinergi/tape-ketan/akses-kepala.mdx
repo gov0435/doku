@@ -1,5 +1,6 @@
 ---
-title: 'Guide Book: Kepala (Approval 2)'
+title: 'Panduan: Approval Kepala'
+sidebarTitle: "Akses Kepala"
 ---
 ## Role: Kepala
 
@@ -83,7 +84,7 @@ Terdapat **4 aksi** yang dapat dilakukan:
 **Hasil**:
 - Status: `approved_by_planning` → `approved`
 - Agenda **disetujui final** dan siap dilaksanakan
-- Notifikasi dikirim ke creator dan Tim Perencanaan
+- Notifikasi dikirim ke Ketua Panitia dan Tim Perencanaan
 
 **Auto-calculations**:
 ```
@@ -112,11 +113,11 @@ Impact Star Overall = total_stars / 4
 
 **Hasil**:
 - Status: `approved_by_planning` → `revision_required_by_head`
-- Agenda kembali ke creator untuk direvisi
-- Notifikasi dikirim ke creator dengan catatan
+- Agenda kembali ke Ketua Panitia untuk direvisi
+- Notifikasi dikirim ke Ketua Panitia dengan catatan
 
 **Catatan**:
-- Creator akan upload proposal revisi dan submit ulang
+- Ketua Panitia akan upload proposal revisi dan submit ulang
 - Setelah revisi, status kembali ke `submitted`
 - Tim Perencanaan harus review ulang
 
@@ -138,12 +139,12 @@ Impact Star Overall = total_stars / 4
 **Hasil**:
 - Status: `approved_by_planning` → `pending`
 - Agenda tidak dapat dilanjutkan
-- Notifikasi dikirim ke creator
+- Notifikasi dikirim ke Ketua Panitia
 
 **Peringatan Keras**:
 - ⚠️ Status `pending` bersifat **final**
 - ⚠️ Agenda tidak dapat di-approve ulang
-- ⚠️ Creator harus membuat agenda baru jika ingin mengajukan lagi
+- ⚠️ Ketua Panitia harus membuat agenda baru jika ingin mengajukan lagi
 
 ---
 
@@ -161,7 +162,7 @@ Impact Star Overall = total_stars / 4
 **Hasil**:
 - Status: `approved_by_planning` → `rejected`
 - Agenda ditolak final
-- Notifikasi dikirim ke creator
+- Notifikasi dikirim ke Ketua Panitia
 
 **Peringatan**:
 - ⚠️ Status `rejected` bersifat **final**
@@ -301,11 +302,11 @@ impact_star_overall = total_stars / 4
 
 **Filter**: Status = `revision_required_by_head`
 
-**Status**: Dikembalikan ke creator untuk revisi
+**Status**: Dikembalikan ke Ketua Panitia untuk revisi
 
 **Action**: 
-- Monitor revisi dari creator
-- Review ulang setelah creator submit
+- Monitor revisi dari Ketua Panitia
+- Review ulang setelah Ketua Panitia submit
 
 ### 6.4 Agenda Ditunda/Ditolak
 
@@ -323,15 +324,16 @@ impact_star_overall = total_stars / 4
 
 | Event | Recipient | Channel |
 |-------|-----------|---------|
-| Agenda ApprovedByPlanning | Kepala | Telegram |
-| Agenda Approved (Kepala) | Creator, Tim Perencanaan | Telegram |
-| Revision Required by Head | Creator | Telegram |
-| Agenda Pending | Creator | Telegram |
-| Agenda Rejected | Creator | Telegram |
+| Agenda ApprovedByPlanning | Kepala | Telegram/Google Chat |
+| Agenda Approved (Kepala) | Ketua Panitia, Tim Perencanaan | Telegram/Google Chat |
+| Revision Required by Head | Ketua Panitia | Telegram/Google Chat |
+| Agenda Pending | Ketua Panitia | Telegram/Google Chat |
+| Agenda Rejected | Ketua Panitia | Telegram/Google Chat |
 
 ### Cara Cek Notifikasi:
 1. Dashboard → Bell icon
-2. Telegram bot (jika terintegrasi)
+2. Telegram bot
+3. Google Chat
 
 ---
 
@@ -358,68 +360,37 @@ impact_star_overall = total_stars / 4
 - ❌ Status `rejected` (Tolak)
 
 **Dapat direvisi**:
-- ✅ Status `revision_required_by_head` (Creator dapat submit ulang)
+- ✅ Status `revision_required_by_head` (Ketua Panitia dapat submit ulang)
 
 ---
 
 ## 9. Workflow Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      Kepala Workflow                         │
-└─────────────────────────────────────────────────────────────┘
-
-[Dashboard Approval Kepala]
-         │
-         ▼
-[Filter: Status = ApprovedByPlanning]
-         │
-         ▼
-[Review Proposal + Dokumen] ───────────────┐
-         │                                  │
-         ▼                                  │
-[Impact Assessment]                         │
-         │                                  │
-         ▼                                  │
-[Apakah layak approve?]                     │
-         │                                  │
-    ┌────┴────┬─────────────┬──────────────┤
-    │         │             │              │
-   ✅        ❌            ❌              ❌
-    │         │             │              │
-    ▼         ▼             ▼              ▼
-[Setujui]  [Perlu     [Tunda/Cancel]  [Tolak]
-    │       Perbaikan]      │              │
-    │         │             │              │
-    │         └──────┐      │              │
-    │                │      │              │
-    ▼                ▼      ▼              ▼
-Status:          Status:  Status:       Status:
-approved         revision pending      rejected
-    │            _required_             (FINAL)
-    │            _by_head               │
-    │                │                  │
-    │                └──────┬───────────┘
-    │                       │
-    ▼                       ▼
-[Final Approved]      [Kembali ke Creator]
-    │                       │
-    │                       ▼
-    │                 [Creator Revisi]
-    │                       │
-    │                       ▼
-    │                 [Submit Ulang]
-    │                       │
-    │                       ▼
-    │                 [Tim Perencanaan]
-    │                       │
-    │                       ▼
-    └──────────────────→ [Review Ulang]
-                                │
-                                ▼
-                          [Ke Kepala]
-                                │
-                                └────→ [Review Proposal]
+```mermaid
+flowchart TD
+    A[Menu Approval Kepala] --> B[Filter: Status = ApprovedByPlanning]
+    B --> C[Review Proposal + Dokumen]
+    C --> D[Impact Assessment]
+    D --> E{Apakah layak approve?}
+    
+    E -->|✅ Ya| F[Setujui]
+    E -->|⚠️ Perlu Revisi| G[Perlu Perbaikan]
+    E -->|⏸️ Timing Tidak Tepat| H[Tunda/Cancel]
+    E -->|❌ Tidak Layak| I[Tolak]
+    
+    F --> J[Status: approved]
+    J --> K[Final Approved]
+    
+    G --> L[Status: revision_required_by_head]
+    L --> M[Kembali ke Ketua Panitia]
+    M --> N[Ketua Panitia Revisi]
+    N --> O[Submit Ulang]
+    O --> P[Tim Perencanaan Review]
+    P --> Q[Ke Kepala]
+    Q --> C
+    
+    H --> R[Status: pending - FINAL]
+    I --> S[Status: rejected - FINAL]
 ```
 
 ---
@@ -463,7 +434,7 @@ approved         revision pending      rejected
 - Ketua Panitia dikunci untuk menjaga akuntabilitas
 
 **Solusi**:
-- Jika perlu ganti ketua, creator harus edit di tahap draft/revisi
+- Jika perlu ganti ketua, Ketua Panitia harus edit di tahap draft/revisi
 
 ---
 
@@ -481,7 +452,7 @@ approved         revision pending      rejected
 1. **Jangan approve** tanpa impact assessment yang matang
 2. **Jangan berikan rating** tanpa evaluasi yang jelas
 3. **Jangan tolak/tunda** tanpa alasan yang kuat
-4. **Jangan edit panitia** tanpa koordinasi dengan creator
+4. **Jangan edit panitia** tanpa koordinasi dengan Ketua Panitia
 5. **Jangan tunda approval** terlalu lama (menghambat kegiatan)
 
 ---
@@ -497,39 +468,16 @@ approved         revision pending      rejected
 | **Strategis + Timing Tidak Tepat** | ⏸️ Tunda/Cancel |
 | **Ragu-ragu / Perlu Diskusi** | ⚠️ Perlu Perbaikan (dengan catatan diskusi) |
 
----
 
-## 13. Referensi
 
-### Models
-- `App\Models\Agenda\Agenda`
-- `App\Models\Agenda\AgendaAnggota`
 
-### Enums
-- `App\Enums\Agenda\ApprovalStatus`
-- `App\Enums\Agenda\PeranAnggota`
+## 13. Referensi Guide Lain
 
-### Services
-- `App\Services\AgendaApprovalService`
-  - `approveByHead()`
-  - `requestRevisionByHead()`
-  - `pendingByHead()`
-  - `rejectByHead()`
-  - `calculateImpactMetrics()`
-
-### Filament Resources
-- `App\Filament\Resources\ApprovalKepalas\ApprovalKepalaResource`
-- `App\Filament\Resources\ApprovalKepalas\Pages\ViewApprovalKepala`
-- `App\Filament\Resources\ApprovalKepalas\Pages\ManageApprovalKepalaAnggota`
-
----
-
-## 14. Referensi Guide Lain
-
-- [01-pengantar.md](01-pengantar.md) - Overview & Workflow
-- [02-pegawai.md](02-pegawai.md) - Guide Pegawai
-- [03-tim-perencanaan.md](03-tim-perencanaan.md) - Guide Tim Perencanaan
-- [05-spi.md](05-spi.md) - Guide SPI
+- [Pengantar Tape Ketan](/sinergi/tape-ketan/intro) - Overview & Workflow
+- [Akses Pegawai](/sinergi/tape-ketan/akses-pegawai) - Panduan Pegawai
+- [Akses Perencanaan](/sinergi/tape-ketan/akses-perencanaan) - Panduan Tim Perencanaan
+- [Akses Kepala](/sinergi/tape-ketan/akses-kepala) - Panduan Kepala
+- [Akses Tim SPI](/sinergi/tape-ketan/akses-spi) - Panduan Tim SPI
 
 ---
 

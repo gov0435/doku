@@ -1,9 +1,10 @@
 ---
-title: 'Guide Book: SPI (Monitoring & Evaluasi)'
+title: 'Panduan: SPI (Monitoring & Evaluasi)'
+sidebarTitle: "Akses SPI"
 ---
 ## Role: SPI (Satuan Pengawas Internal)
 
-**Akses**: User dengan role `spi` atau `admin`
+**Akses**: User dengan role `spi`
 
 **URL**: `/app/monitoring-spi`
 
@@ -433,17 +434,16 @@ Status = Approved
 
 ## 11. Business Rules
 
-### 10.1 Akses SPI & Admin
+### 10.1 Akses SPI
 
 **Dapat**:
-- ✅ View semua agenda (milik sendiri & orang lain) - **SPI & Admin**
-- ✅ View semua dokumen - **SPI & Admin**
-- ✅ View impact assessment - **SPI & Admin**
-- ✅ View approval history - **SPI & Admin**
-- ✅ Export laporan - **SPI & Admin**
-- ✅ Filter & search - **SPI & Admin**
-- ✅ **Archive agenda** (jika administrasi lengkap) - **SPI & Admin**
-- ✅ **Edit agenda** - **Admin only**
+- ✅ View semua agenda (milik sendiri & orang lain) - **SPI**
+- ✅ View semua dokumen - **SPI**
+- ✅ View impact assessment - **SPI**
+- ✅ View approval history - **SPI**
+- ✅ Export laporan - **SPI**
+- ✅ Filter & search - **SPI**
+- ✅ **Archive agenda** (jika administrasi lengkap) - **SPI**
 
 **Tidak Dapat**:
 - ❌ Create agenda - **SPI only**
@@ -451,9 +451,9 @@ Status = Approved
 - ❌ Approve/reject agenda - **SPI only**
 - ❌ Edit anggota/panitia - **SPI only**
 
-### 10.2 Archive Agenda (Khusus SPI & Admin)
+### 10.2 Archive Agenda (Khusus SPI)
 
-**Status `archived` ditetapkan manual oleh SPI atau Admin** setelah verifikasi kesesuaian dokumen yang diunggah.
+**Status `archived` ditetapkan manual oleh SPI** setelah verifikasi kesesuaian dokumen yang diunggah.
 
 #### Indikator Agenda Bisa Diarsipkan:
 
@@ -477,7 +477,7 @@ Status = Approved
    - Jenis kendala dipilih
 4. Verifikasi di tab **Peserta**:
    - Ada minimal 1 peserta
-5. Di halaman **Info**, akan muncul tombol **Archive Agenda** (hanya untuk role `spi` atau `admin`)
+5. Di halaman **Info**, akan muncul tombol **Archive Agenda** (hanya untuk role `spi`)
 6. Klik **Archive Agenda**
 7. Konfirmasi action
 8. Status berubah: `ReportPreparation` → `Archived`
@@ -486,8 +486,7 @@ Status = Approved
 - ⚠️ Archive bersifat **final** (tidak dapat diubah)
 - ✅ Agenda archived masih bisa dilihat (view-only)
 - 📊 Agenda archived masuk statistik "Kegiatan Selesai"
-- 🔒 Hanya role `spi` dan `admin` yang bisa archive agenda
-- 👑 **Admin** juga dapat edit agenda (SPI view-only)
+- 🔒 Hanya role `spi` yang bisa archive agenda
 
 ### 10.2 Data Visibility
 
@@ -738,6 +737,15 @@ Status = Approved
 - [Kegiatan high impact dapat prioritas anggaran]
 - [Kegiatan low impact perlu review ulang]
 ```
+
+
+## Referensi Guide Lain
+
+- [Pengantar Tape Ketan](/sinergi/tape-ketan/intro) - Overview & Workflow
+- [Akses Pegawai](/sinergi/tape-ketan/akses-pegawai) - Panduan Pegawai
+- [Akses Perencanaan](/sinergi/tape-ketan/akses-perencanaan) - Panduan Tim Perencanaan
+- [Akses Kepala](/sinergi/tape-ketan/akses-kepala) - Panduan Kepala
+- [Akses Tim SPI](/sinergi/tape-ketan/akses-spi) - Panduan Tim SPI
 
 ---
 

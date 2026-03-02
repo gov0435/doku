@@ -1,5 +1,6 @@
 ---
 title: 'Pengantar Fitur Tape Ketan (Agenda)'
+sidebarTitle: "Pengantar Tape Ketan"
 ---
 ## Deskripsi Umum
 
@@ -72,7 +73,6 @@ graph TD
 | **Tim Perencanaan** | ✅ | ✅ Semua | ✅ (anggaran) | ✅ Approval 1 | ❌ |
 | **Kepala** | ✅ | ✅ Semua | ✅ (anggota) | ✅ Approval 2 | ❌ |
 | **SPI** | ❌ | ✅ Semua | ❌ | ❌ | ✅ (jika lengkap) |
-| **Admin** | ✅ | ✅ Semua | ✅ Semua | ❌ | ✅ (jika lengkap) |
 
 ### Hak Akses Detail
 
@@ -101,10 +101,6 @@ graph TD
 - Akses dokumen dan laporan
 - **Archive agenda** jika administrasi lengkap (dokumen, evaluasi, peserta)
 
-#### Admin
-- Full access ke semua agenda
-- Dapat edit semua agenda
-- **Archive agenda** jika administrasi lengkap
 
 ---
 
@@ -196,8 +192,8 @@ Sistem mengirim notifikasi otomatis untuk event:
 - ✅ Agenda ditunda/dibatalkan
 
 Notifikasi dikirim via:
-- Telegram
-- Neon (activity log)
+- [Telegram](https://t.me/+XadhwMvihb41NGRl)
+- [Google Chat](https://chat.google.com/room/AAQAlw8CNk4?cls=7)
 
 ---
 
@@ -217,40 +213,6 @@ agenda/
 - **Word/Excel**: Max 25MB (dokumen pendukung)
 - **Link URL**: Tidak ada batasan ukuran
 
----
-
-## Referensi Teknis
-
-### Models
-- `App\Models\Agenda\Agenda`
-- `App\Models\Agenda\AgendaAnggota`
-- `App\Models\Agenda\AgendaPeserta`
-- `App\Models\Agenda\AgendaTugas`
-- `App\Models\Agenda\AgendaDokumen`
-- `App\Models\Agenda\AprovalAgenda`
-
-### Enums
-- `App\Enums\Agenda\ApprovalStatus`
-- `App\Enums\Agenda\AgendaStatus`
-- `App\Enums\Agenda\JenisAgenda`
-- `App\Enums\Agenda\KlasifikasiAgenda`
-- `App\Enums\Agenda\ModaAgenda`
-- `App\Enums\Agenda\Pendanaan`
-- `App\Enums\Agenda\JenisDokumen`
-- `App\Enums\Agenda\KodeTugasAgenda`
-- `App\Enums\Agenda\PeranAnggota`
-
-### Services
-- `App\Services\AgendaApprovalService`
-- `App\Services\AgendaAdministrasiStatusService`
-- `App\Services\AgendaApprovalNotificationService`
-
-### Filament Resources
-- `App\Filament\Resources\Agendas\AgendaResource`
-- `App\Filament\Resources\ApprovalPerencanaans\ApprovalPerencanaanResource`
-- `App\Filament\Resources\ApprovalKepalas\ApprovalKepalaResource`
-
----
 
 ## Changelog
 - **2026-02-27**: Guide book pertama kali dibuat

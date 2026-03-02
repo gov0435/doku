@@ -1,15 +1,12 @@
 ---
-title: 'Pengantar Fitur Tape Ketan (Agenda)'
+title: 'Panduan: Aproval Tim Perencanaan'
+sidebarTitle: "Akses Perencanaan"
 ---
-# Guide Book: Tim Perencanaan (Approval 1)
-
 ## Role: Tim Perencanaan
 
 **Akses**: User dengan role `tim_perencanaan`
 
 **URL**: `/app/approval-perencanaans`
-
----
 
 ## Overview
 
@@ -80,7 +77,7 @@ Terdapat 3 aksi yang dapat dilakukan:
 **Hasil**:
 - Status: `submitted` → `approved_by_planning`
 - Agenda masuk ke dashboard **Kepala** untuk approval 2
-- Notifikasi dikirim ke creator dan Kepala
+- Notifikasi dikirim ke Ketua Panitia dan Kepala
 
 ---
 
@@ -98,11 +95,11 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 **Hasil**:
 - Status: `submitted` → `revision_required`
-- Agenda kembali ke creator untuk direvisi
-- Notifikasi dikirim ke creator dengan catatan perbaikan
+- Agenda kembali ke Ketua Panitia untuk direvisi
+- Notifikasi dikirim ke Ketua Panitia dengan catatan perbaikan
 
 **Catatan**:
-- Creator akan upload proposal revisi dan submit ulang
+- Ketua Panitia akan upload proposal revisi dan submit ulang
 - Setelah revisi, status kembali ke `submitted`
 
 ---
@@ -121,11 +118,11 @@ Terdapat 3 aksi yang dapat dilakukan:
 **Hasil**:
 - Status: `submitted` → `rejected`
 - Agenda tidak dapat diajukan ulang (final)
-- Notifikasi dikirim ke creator
+- Notifikasi dikirim ke Ketua Panitia
 
 **Peringatan**: 
 - Penolakan bersifat final
-- Creator harus membuat agenda baru jika ingin mengajukan kegiatan
+- Ketua Panitia harus membuat agenda baru jika ingin mengajukan kegiatan
 
 ---
 
@@ -224,34 +221,24 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 **Filter**: Status = `revision_required`
 
-**Status**: Dikembalikan ke creator
+**Status**: Dikembalikan ke Ketua Panitia
 
 **Action**: 
-- Monitor revisi dari creator
-- Review ulang setelah creator submit
+- Monitor revisi dari Ketua Panitia
+- Review ulang setelah Ketua Panitia submit
 
 ---
 
-## 7. Edit Panitia (Terbatas)
-
-**Akses**: Tidak tersedia untuk Tim Perencanaan
-
-**Catatan**:
-- Edit panitia hanya tersedia untuk Kepala (approval 2)
-- Jika perlu perubahan panitia, koordinasikan dengan creator
-
----
-
-## 8. Notifikasi
+## 7. Notifikasi
 
 ### Notifikasi Dikirim Saat:
 
 | Event | Recipient | Channel |
 |-------|-----------|---------|
 | Proposal Submitted | Tim Perencanaan | Telegram |
-| Proposal Approved | Creator, Kepala | Telegram |
-| Revision Required | Creator | Telegram |
-| Proposal Rejected | Creator | Telegram |
+| Proposal Approved | Ketua Panitia, Kepala | Telegram |
+| Revision Required | Ketua Panitia | Telegram |
+| Proposal Rejected | Ketua Panitia | Telegram |
 
 ### Cara Cek Notifikasi:
 1. Dashboard → Bell icon
@@ -259,9 +246,9 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 ---
 
-## 9. Business Rules
+## 8. Business Rules
 
-### 9.1 Persyaratan Approve
+### 8.1 Persyaratan Approve
 
 **Wajib**:
 - ✅ Dokumen Telaah uploaded
@@ -269,16 +256,16 @@ Terdapat 3 aksi yang dapat dilakukan:
 - ✅ Catatan telaah diisi
 - ✅ Status agenda = `submitted`
 
-### 9.2 Edit Anggaran
+### 8.2 Edit Anggaran
 
 **Hanya bisa edit jika**:
 - ✅ Status = `submitted`
 - ✅ User role = `tim_perencanaan`
 
-### 9.3 Hapus Dokumen
+### 8.3 Hapus Dokumen
 
 **Tidak bisa dihapus**:
-- ❌ Proposal (milik creator)
+- ❌ Proposal (milik Ketua Panitia)
 - ❌ Dokumen Telaah (setelah approve)
 - ❌ KAK & RAB (setelah approve)
 
@@ -286,7 +273,7 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 ---
 
-## 10. Troubleshooting
+## 9. Troubleshooting
 
 ### Problem: Tombol Setujui Tidak Aktif
 
@@ -333,13 +320,13 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 ---
 
-## 11. Tips & Best Practices
+## 10. Tips & Best Practices
 
 ### ✅ DO (Lakukan)
 1. **Review detail proposal** sebelum approve
 2. **Upload dokumen telaah** yang jelas dan lengkap
 3. **Berikan catatan** yang konstruktif untuk revisi
-4. **Koordinasi dengan creator** jika ada pertanyaan
+4. **Koordinasi dengan Ketua Panitia** jika ada pertanyaan
 5. **Monitor timeline** approval (jangan terlalu lama)
 6. **Pastikan anggaran** sesuai dengan rencana kerja
 
@@ -352,94 +339,40 @@ Terdapat 3 aksi yang dapat dilakukan:
 
 ---
 
-## 12. Workflow Diagram
+## 11. Workflow Diagram
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Tim Perencanaan Workflow                  │
-└─────────────────────────────────────────────────────────────┘
-
-[Dashboard Approval Perencanaan]
-         │
-         ▼
-[Filter: Status = Submitted]
-         │
-         ▼
-[Review Proposal] ─────────────────────┐
-         │                              │
-         ▼                              │
-[Apakah proposal layak?]                │
-         │                              │
-    ┌────┴────┐                         │
-    │         │                         │
-   ✅        ❌                         │
-    │         │                         │
-    ▼         ▼                         │
-[Setujui]  [Perlu Perbaikan]            │
-    │         │                         │
-    │         └──────────┐              │
-    │                    │              │
-    ▼                    ▼              │
-[Upload:              [Isi Catatan]     │
- - Telaah               │               │
- - KAK & RAB            │               │
- - Catatan]             │               │
-    │                    │               │
-    ▼                    ▼               │
-[Simpan]              [Simpan]          │
-    │                    │               │
-    ▼                    ▼               │
-Status:              Status:            │
-approved_by_         revision_          │
-planning             required           │
-    │                    │               │
-    │                    └──────┬───────┘
-    │                           │
-    ▼                           ▼
-[Ke Kepala]            [Kembali ke Creator]
-                              │
-                              ▼
-                        [Creator Revisi]
-                              │
-                              ▼
-                        [Submit Ulang]
-                              │
-                              └──────→ [Review Proposal]
+```mermaid
+flowchart TD
+    A[Menu Approval Perencanaan] --> B[Filter: Status = Submitted]
+    B --> C[Review Proposal]
+    C --> D{Apakah proposal layak?}
+    
+    D -->|✅ Ya| E[Setujui]
+    D -->|❌ Tidak| F[Perlu Perbaikan]
+    
+    E --> G[Upload:\n- Telaah\n- KAK & RAB\n- Catatan]
+    G --> H[Simpan]
+    H --> I[Status: approved_by_planning]
+    I --> J[Ke Kepala]
+    
+    F --> K[Isi Catatan Perbaikan]
+    K --> L[Simpan]
+    L --> M[Status: revision_required]
+    M --> N[Kembali ke Ketua Panitia]
+    N --> O[Ketua Panitia Revisi]
+    O --> P[Submit Ulang]
+    P --> C
 ```
 
 ---
 
-## 13. Referensi
+## 12. Referensi Guide Lain
 
-### Models
-- `App\Models\Agenda\Agenda`
-- `App\Models\Agenda\AgendaDokumen`
-- `App\Models\Anggaran\Aktivitas`
-
-### Enums
-- `App\Enums\Agenda\ApprovalStatus`
-- `App\Enums\Agenda\JenisDokumen`
-- `App\Enums\Agenda\KlasifikasiAgenda`
-- `App\Enums\Agenda\Pendanaan`
-
-### Services
-- `App\Services\AgendaApprovalService`
-  - `approveByPlanning()`
-  - `requestRevision()`
-  - `rejectByPlanning()`
-
-### Filament Resources
-- `App\Filament\Resources\ApprovalPerencanaans\ApprovalPerencanaanResource`
-- `App\Filament\Resources\ApprovalPerencanaans\Pages\ViewApprovalPerencanaan`
-- `App\Filament\Resources\ApprovalPerencanaans\Pages\ManageApprovalPerencanaanAnggaran`
-
----
-
-## 14. Referensi Guide Lain
-
-- [01-pengantar.md](01-pengantar.md) - Overview & Workflow
-- [02-pegawai.md](02-pegawai.md) - Guide Pegawai
-- [04-kepala.md](04-kepala.md) - Guide Kepala
+- [Pengantar Tape Ketan](/sinergi/tape-ketan/intro) - Overview & Workflow
+- [Akses Pegawai](/sinergi/tape-ketan/akses-pegawai) - Panduan Pegawai
+- [Akses Perencanaan](/sinergi/tape-ketan/akses-perencanaan) - Panduan Tim Perencanaan
+- [Akses Kepala](/sinergi/tape-ketan/akses-kepala) - Panduan Kepala
+- [Akses Tim SPI](/sinergi/tape-ketan/akses-spi) - Panduan Tim SPI
 
 ---
 
